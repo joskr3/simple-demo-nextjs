@@ -1,22 +1,20 @@
+'use client'
+
 import { Store } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import { useRouter } from 'next/navigation'
+const LoginHeader = () => {
 
-const Myheader = () => {
+  const router = useRouter()
+  const navigateToHome = () => router.push('/')
   return (
-    <nav className='flex  justify-around max-h-14  p-3'>
+    <nav className='flex m-auto justify-between max-h-14  p-3 '>
       <div className='flex '>
         <Store />
-        <Link href="/">
+        < div className="cursor-pointer"onClick={navigateToHome}>
           <h1>Mi palomita</h1>
-        </Link>
-      </div>
-
-      <div className='hidden gap-3 font-thin  md:flex'>
-        <p>Ropa</p>
-        <p>Accesorios</p>
-        <p>Joyeria</p>
-        <p>Perfumes</p>
+        </div>
       </div>
 
       <div className='flex gap-4 font-thin'>
@@ -29,4 +27,4 @@ const Myheader = () => {
   )
 }
 
-export default Myheader
+export default LoginHeader

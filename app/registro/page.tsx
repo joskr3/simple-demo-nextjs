@@ -6,7 +6,6 @@ const Registro = () => {
     <>
       <p>Hola soy el registro</p>
       <Boton />
-
     </>
   )
 }
