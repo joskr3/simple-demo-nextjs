@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
-import LoginHeader from "../components/loginheader";
+import LoginHeader from "../../components/custom/loginheader";
 
 const fontSans = FontSans({
   subsets: ["latin"],

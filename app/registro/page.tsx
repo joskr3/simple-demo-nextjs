@@ -1,5 +1,5 @@
 import React from 'react'
-import Boton from '../components/boton'
+import Boton from '../../components/custom/boton'
 
 const Registro = () => {
   return (
