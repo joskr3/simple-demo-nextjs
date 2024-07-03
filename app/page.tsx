@@ -9,7 +9,7 @@ const App = () => {
     <>
       <CustomCarousel />
       
-      <h1 className="m-auto font-light text-pretty text-3xl py-6">Bienvenidos a la mejor bodeguita de gatos</h1>
+      <h1 className="m-auto font-light text-pretty text-3xl py-6">Bienvenidos a la mejor bodeguita de gatos </h1>
 
 
       <h3 className="font-light text-pretty text-xl py-6">Categoria 1</h3>
