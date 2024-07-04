@@ -18,7 +18,7 @@ const CustomCarousel = ({ images,className }: Props) => {
         {
           images.map((imagen, index) => <Image key={index} alt="productos"
             priority
-            className='w-full'
+            className='w-full mx-3 rounded-xl'
             src={imagen.src}
             quality={100}
             width={imagen?.witdh || 1020}

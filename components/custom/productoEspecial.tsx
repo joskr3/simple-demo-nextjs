@@ -20,12 +20,11 @@ interface Props {
   contenido: string
   className?: string
   boton?: boolean
-  onClick?: () => void
 }
 
-const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton, onClick }: Props) => {
+const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Props) => {
   return (
-    <button onClick={onClick}>
+    <button >
       <Card className="m-3" >
         <CardHeader>
           <CardTitle>{titulo}</CardTitle>
