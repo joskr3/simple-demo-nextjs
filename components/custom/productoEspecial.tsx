@@ -25,14 +25,14 @@ interface Props {
 const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Props) => {
   return (
     <button >
-      <Card className="m-3" >
+      <Card className="m-3 " >
         <CardHeader>
           <CardTitle>{titulo}</CardTitle>
-          <CardDescription>{descripcion}</CardDescription>
+          <CardDescription><p>Producto del dia</p></CardDescription>
         </CardHeader>
-        <CardContent>
-          <Image src={imagen.src} alt="imagen" width={imagen.witdh} className="rounded-md p-3 m-2" height={250} />
-          <p className="text-pretty p-3 m-2">{contenido}</p>
+        <CardContent className="w-full flex flex-col md:flex-row mx-auto ">
+          <Image src={imagen.src} alt="imagen" width={imagen.witdh} className="rounded-lg p-3 m-2" height={250} />
+          <p className=" flex text-justify my-auto text-balance p-3 m-2">{contenido}</p>
         </CardContent>
         <CardFooter>
           {

@@ -24,12 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-dvh bg-background font-sans antialiased relative flex flex-col p-3",
+          " flex flex-col h-dvh justify-between  bg-background font-sans antialiased p-3",
           fontSans.variable
         )}
       >
         <Myheader />
-        {children}
+        <main className="my-5">{children}</main>
         <Footer />
       </body>
     </html>
