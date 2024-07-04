@@ -20,16 +20,12 @@ const CardCarousell = ({ imagen, descuento, titulo }: Props) => {
           <CardDescription>{`${descuento || 50} % descuento`}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Image alt="productos"
-            priority
-            className='w-full mx-3 rounded-xl min-h-[250]'
-            src={imagen.src}
-            quality={100}
-            width={imagen?.width || 1020} // Corrected typo here
-            height={500}
-            style={{
-              objectFit: 'cover',
-            }} />
+          <div style={{ height: '200px', width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Image alt="productos"
+              className='mx-3 rounded-xl h-[200] w-full relative flex justify-center items-center align-middle'
+              src={imagen.src}
+            />
+          </div>
         </CardContent>
         <CardFooter>
           <Button asChild variant="modern" className="rounded-md p-3 m-2 justify-center ">

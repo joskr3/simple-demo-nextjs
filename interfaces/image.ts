@@ -1,7 +1,7 @@
 
-interface image {
-  src: string
-  witdh?: number
-}
+  interface image {
+    src: string
+    witdh?: number
+  }
 
-export default image
+  export default image
