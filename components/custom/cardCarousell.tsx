@@ -25,7 +25,7 @@ const CardCarousell = ({ imagen, descuento, titulo }: Props) => {
               className='mx-3 rounded-xl h-[200] w-full relative flex justify-center items-center align-middle'
               src={imagen.src}
               width={imagen.witdh}
-              height={200}
+              height={250}
             />
           </div>
         </CardContent>
