@@ -6,8 +6,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 interface Props { 
-  imagen: any
-  titulo: string
+  imagen?: any
+  titulo?: string
   descuento?: number
 }
 
