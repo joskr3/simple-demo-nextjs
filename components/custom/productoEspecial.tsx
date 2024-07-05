@@ -24,7 +24,7 @@ interface Props {
 
 const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Props) => {
   return (
-    <button >
+    <button className="max-w-full">
       <Card className="m-3" >
         <CardHeader>
           <CardTitle>{titulo}</CardTitle>

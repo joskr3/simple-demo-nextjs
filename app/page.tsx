@@ -1,9 +1,8 @@
 import ProductoEspecial from "@/components/custom/productoEspecial"
-import CustomCarousel from "../components/custom/customCarousel"
+import CustomNukaCarousel from "../components/custom/customNukaCarousel"
 import productos from "@/data/data"
 import { cn } from "@/lib/utils"
-import { useRouter } from "next/navigation"
-
+import SimpleCardSeccion from "@/components/custom/simpleCardSeccion"
 
 interface SeccionProps {
   children?: React.JSX.Element
@@ -26,12 +25,6 @@ const MiSeccion = ({ children, titulo, className }: SeccionProps) => {
 
 const App = () => {
 
-  const router = useRouter()
-
-  const handleClickProducto = (productId: number) => {
-    router.push(`/product/${productId}`)
-  }
-
   const todosLosProductos = productos.products
   const heroProductos = productos.products.slice(5, 14)
   const productosDetalle = productos.products[0]
@@ -48,7 +41,7 @@ const App = () => {
   return (
     <main className="flex flex-wrap max-w-full">
       <MiSeccion>
-        <CustomCarousel images={todosLosProductos} />
+        <CustomNukaCarousel images={todosLosProductos} />
       </MiSeccion>
       <MiSeccion>
         <h1 className={tituloHero}>
@@ -56,24 +49,31 @@ const App = () => {
         </h1>
       </MiSeccion>
       <MiSeccion titulo="Los mas vendidos">
-        <CustomCarousel images={heroProductos} />
+        <CustomNukaCarousel images={heroProductos} />
       </MiSeccion>
-      <MiSeccion >
-        <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} />
-      </MiSeccion>
-      <div className="flex flex-col ">
-        <MiSeccion titulo="Lacteos">
-          <CustomCarousel images={productoslacteos} />
+      <div className=" flex flex-col md:flex-row gap-4 ">
+        <MiSeccion className="max-w-full" >
+          <>
+            <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} />
+            <MiSeccion titulo="Otros">
+              <SimpleCardSeccion images={productosOtros} />
+            </MiSeccion>
+          </>
         </MiSeccion>
-        <MiSeccion titulo="Otros">
-          <CustomCarousel images={productosOtros} />
-        </MiSeccion>
-        <MiSeccion titulo="Otros">
-          <CustomCarousel images={productosOtros} />
-        </MiSeccion>
+        <div className="flex flex-col max-w-[50%]">
+          <MiSeccion titulo="Otros">
+            <SimpleCardSeccion images={productosOtros} />
+          </MiSeccion>
+          <MiSeccion titulo="Lacteos">
+            <SimpleCardSeccion images={productoslacteos} />
+          </MiSeccion>
+          <MiSeccion titulo="Panaderia">
+            <SimpleCardSeccion images={productosOtros} />
+          </MiSeccion>
+        </div>
       </div>
-      <MiSeccion titulo="Verduras">
-        <CustomCarousel images={productosVerduras} />
+      <MiSeccion titulo="Los mas vendidos">
+        <SimpleCardSeccion images={productosVerduras} />
       </MiSeccion>
     </main>
   )
