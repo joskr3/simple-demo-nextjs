@@ -94,7 +94,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "typewriter": "typewriter 5s steps(38) forwards",
-        "caret": "typewriter 5s steps(38) forwards, blink 1s steps(11) infinite 2s"
+        "caret": "typewriter 5s steps(38) forwards, blink 1s steps(38) infinite 2s"
       },
     },
   },
