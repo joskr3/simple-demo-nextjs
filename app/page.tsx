@@ -54,7 +54,7 @@ const App = () => {
       <div className=" flex flex-col md:flex-row gap-4 ">
         <MiSeccion className="max-w-full" >
           <>
-            <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} />
+            <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} boton={true} />
             <MiSeccion titulo="Otros">
               <SimpleCardSeccion images={productosOtros} />
             </MiSeccion>

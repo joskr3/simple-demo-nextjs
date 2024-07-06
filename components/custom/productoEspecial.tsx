@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Card,
   CardContent,
@@ -12,6 +14,7 @@ import Image from "next/image"
 import React from 'react'
 import { Button } from "../ui/button"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface Props {
   imagen: image
@@ -23,8 +26,24 @@ interface Props {
 }
 
 const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Props) => {
+
+  const router = useRouter()
+
+
+  const mostrarBoton = (boton = false) => {
+    if (boton) {
+      return (
+        <Button asChild variant="modern" className="rounded-md p-3 m-2 justify-center ">
+          <Link href="/producto">Comprar</Link>
+        </Button>
+      )
+    } else {
+      return null
+    }
+  }
+
   return (
-    <button className="max-w-full">
+    <button className="cursor-pointer" type="button" onClick={() => router.push(`/product/${imagen.id}`)}>
       <Card className="m-3" >
         <CardHeader>
           <CardTitle>{titulo}</CardTitle>
@@ -36,9 +55,7 @@ const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Pro
         </CardContent>
         <CardFooter>
           {
-            boton && (<Button asChild variant="modern" className="rounded-md p-3 m-2 justify-center ">
-              <Link href="/producto">Comprar</Link>
-            </Button>)
+            mostrarBoton(boton)
           }
         </CardFooter>
       </Card>
