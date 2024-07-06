@@ -3,9 +3,7 @@
 import React from 'react';
 import ProductoEspecial from '@/components/custom/productoEspecial';
 import data from '@/data/data';
-import type { Metadata } from 'next';
 import type image from '@/interfaces/image';
-
 
 interface ParametrosProps {
   parametros:image[]
@@ -18,12 +16,8 @@ interface ProductDetailProps {
 const ProductDetail = ({ params }: ProductDetailProps) => {
   const { parametros } = params
   
-
-
   console.log(parametros[0], "PARAMETROS", typeof (parametros))
   console.log(parametros[1], "PARAMETROS", typeof (parametros))
-
-
 
   const product = data.products.find((p: { id: number }) => p.id === +parametros[0] as number);
   console.log(product, "PRODUCTO")
