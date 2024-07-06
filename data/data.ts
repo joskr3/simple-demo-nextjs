@@ -1,6 +1,6 @@
 const productos = {
   products: [
-    { id: 1, src: '/oilb.jpg', witdh: 1020, titulo: 'Aceite de Oliva', descripcion: 'El mejor aceite de Oliva , multipremiado por al comunidad internacional por su excelnete sabor y propiedades', descuento: 40 },
+    { id: 1, src: '/oilb.jpg', witdh: 1020, titulo: 'Aceite de Oliva', descripcion: 'El mejor aceite de Oliva , multipremiado por al comunidad internacional por su excelnete sabor y propiedades', descuento: 40, nombre:'aceite' },
     { id: 2, src: '/leche.jpg', witdh: 1020 },
     { id: 3, src: '/tomatitos.jpg', witdh: 1020 },
     { id: 4, src: '/zanahorias.jpg', witdh: 1020 },

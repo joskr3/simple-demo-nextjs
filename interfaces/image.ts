@@ -4,7 +4,8 @@ interface image {
   src: string
   witdh?: number
   titulo?: string
-  descuento?:number
+  descuento?: number
+  nombre?:string
 }
 
 export default image

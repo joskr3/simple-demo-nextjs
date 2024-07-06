@@ -13,7 +13,7 @@ const SimpleCardSeccion = ({ images }: Props) => {
   return (
     <div className='flex gap-4 overflow-x-scroll'>
       {
-        images.map(({ src, witdh, titulo, descuento, id = 0 }, index) => <Link href={`product/${id}`}>
+        images.map(({ src, witdh, titulo, descuento, id = 0 }, index) => <Link href={`producto/${id}`}>
           <CardCarousel key={index} titulo={titulo || ""} descuento={descuento || 20} src={src} width={witdh as number} />
         </Link>)
       }
