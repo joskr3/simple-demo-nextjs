@@ -11,7 +11,7 @@ interface Props {
   className?:string
 }
 
-const CustomCarousel = ({ images,className }: Props) => {
+const CustomNukaCarousel = ({ images,className }: Props) => {
   return (
     <div className={className}>
       <Carousel showArrows >
@@ -36,4 +36,4 @@ const CustomCarousel = ({ images,className }: Props) => {
 
 
 
-export default CustomCarousel
+export default CustomNukaCarousel
