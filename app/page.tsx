@@ -1,8 +1,12 @@
+'use client'
+
 import ProductoEspecial from "@/components/custom/productoEspecial"
 import CustomNukaCarousel from "../components/custom/customNukaCarousel"
 import productos from "@/data/data"
 import { cn } from "@/lib/utils"
 import SimpleCardSeccion from "@/components/custom/simpleCardSeccion"
+import React from "react"
+import { Theme, useTheme } from "@/context/ThemeContext"
 
 interface SeccionProps {
   children?: React.JSX.Element
@@ -25,6 +29,8 @@ const MiSeccion = ({ children, titulo, className }: SeccionProps) => {
 
 const App = () => {
 
+  const { theme,setTheme } = useTheme()
+
   const todosLosProductos = productos.products
   const heroProductos = productos.products.slice(5, 14)
   const productosDetalle = productos.products[0]
@@ -32,19 +38,32 @@ const App = () => {
   const productosOtros = productos.products.slice(17, 19)
   const productosVerduras = productos.products.slice(19)
 
-  const styles = {
-    tituloHero: "mx-auto font-extralight text-pretty text-3xl  md:text-5xl my-10  py-6 text-center relative  before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em]"
+
+  const styleWithTheme = {
+    dark: {
+      tituloHero: "mx-auto font-extralight text-pretty text-3xl  md:text-5xl my-10  py-6 text-center relative  before:absolute before:inset-0 before:animate-typewriter before:bg-black before:text-white after:absolute after:inset-0 after:w-[0.125em]"
+    },
+    light: {
+      tituloHero: "mx-auto font-extralight text-pretty text-3xl  md:text-5xl my-10  py-6 text-center relative  before:absolute before:inset-0 before:animate-typewriter before:bg-white before:text-black after:absolute after:inset-0 after:w-[0.125em]"
+    }
   }
 
-  const { tituloHero } = styles
-
   return (
-    <main>
+    <main className={
+      cn(
+        "flex flex-col gap-4",
+        theme === Theme.Dark ? "bg-black text-white" : "bg-white text-black"
+      )
+    }>
       <MiSeccion>
         <CustomNukaCarousel images={todosLosProductos} />
       </MiSeccion>
       <MiSeccion>
-        <h1 className={tituloHero}>
+        <h1 className={
+          cn(
+            styleWithTheme[theme].tituloHero
+          )
+        }>
           Bienvenidos a la mejor bodeguita online
         </h1>
       </MiSeccion>
@@ -54,7 +73,7 @@ const App = () => {
       <div className=" flex flex-col md:flex-row gap-4 ">
         <MiSeccion >
           <div>
-            <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} boton={true} />
+            <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} boton={true}/>
             <MiSeccion titulo="Otros">
               <SimpleCardSeccion images={productosOtros} />
             </MiSeccion>

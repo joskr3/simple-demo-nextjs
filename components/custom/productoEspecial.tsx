@@ -15,6 +15,7 @@ import React from 'react'
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import type { Theme } from "@/context/ThemeContext"
 
 interface Props {
   imagen: image

@@ -1,7 +1,12 @@
-import { Store } from 'lucide-react'
+'use client'
+
+import { Store, Sun, Moon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import MenuHamburguesa from './menuHamburguesa'
+import { Theme, useTheme } from '@/context/ThemeContext'
+import { Button } from '../ui/button'
+import { cn } from "@/lib/utils"
 
 const Myheader = () => {
   const MenuDesktop = () => {
@@ -30,11 +35,11 @@ const Myheader = () => {
       </>
     )
   }
-  const MenuMobile = () => { 
+  const MenuMobile = () => {
     return (
       <div className='block md:hidden'>
         <MenuHamburguesa />
-      </div>  
+      </div>
     )
   }
   const MenuResponsivo = () => {
@@ -46,8 +51,18 @@ const Myheader = () => {
     )
   }
 
+  const { theme, setTheme } = useTheme()
+  const toggleTheme = () => {
+    setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light)
+  }
+
   return (
-    <nav className='flex justify-between h-12 md:h-20  p-3 mx-2 sticky top-0 z-10 bg-white w-full'>
+    <nav className={
+      cn(
+        "flex justify-between items-center gap-4 p-4",
+        theme === Theme.Dark ? "bg-black text-white" : "bg-white text-black"
+      )
+    }>
       <MenuResponsivo />
       <div className='flex gap-4 font-thin items-center'>
         <Link href='/inicio' className=' text-md md:text-2xl'>
@@ -56,6 +71,11 @@ const Myheader = () => {
         <Link href='/registro' className=' text-md md:text-2xl'>
           Registro
         </Link>
+        <Button onClick={toggleTheme} variant={theme === Theme.Light ? "outline" : "dark"}>
+          {
+            theme === Theme.Light ? <Moon /> : <Sun />
+          }
+        </Button>
       </div>
     </nav>
   )

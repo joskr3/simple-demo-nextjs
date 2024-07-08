@@ -1,3 +1,4 @@
+import type { Theme } from "@/context/ThemeContext"
 
 interface image {
   id?:number
@@ -5,7 +6,7 @@ interface image {
   witdh?: number
   titulo?: string
   descuento?: number
-  nombre?:string
+  nombre?: string
 }
 
 export default image

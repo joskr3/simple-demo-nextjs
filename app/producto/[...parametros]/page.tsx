@@ -33,8 +33,7 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
         titulo={product?.titulo as string}
         descripcion={product?.descripcion as string}
         contenido={product?.descripcion as string}
-        boton={true}
-      />
+        boton={true} />
     </div>
   );
 };
