@@ -12,7 +12,7 @@ interface SeccionProps {
 
 const MiSeccion = ({ children, titulo, className }: SeccionProps) => {
   return (
-    <section className={cn('flex flex-col md:flex-row gap-8 mx-auto max-w-full', className)} >
+    <section className={cn('flex flex-col md:flex-row gap-8 mx-auto max-w-full justify-center', className)} >
       <div className="flex flex-col">
         <h3 className="font-light text-pretty  text-2xl md:text-5xl py-6 ml-4">
           {titulo}
@@ -39,7 +39,7 @@ const App = () => {
   const { tituloHero } = styles
 
   return (
-    <main className="flex flex-wrap max-w-full">
+    <main>
       <MiSeccion>
         <CustomNukaCarousel images={todosLosProductos} />
       </MiSeccion>
@@ -52,20 +52,20 @@ const App = () => {
         <CustomNukaCarousel images={heroProductos} />
       </MiSeccion>
       <div className=" flex flex-col md:flex-row gap-4 ">
-        <MiSeccion className="max-w-full" >
-          <>
+        <MiSeccion >
+          <div>
             <ProductoEspecial imagen={productosDetalle} titulo={productosDetalle.titulo as string} descripcion={productosDetalle.descripcion as string} contenido={productosDetalle.descripcion as string} boton={true} />
             <MiSeccion titulo="Otros">
               <SimpleCardSeccion images={productosOtros} />
             </MiSeccion>
-          </>
+          </div>
         </MiSeccion>
-        <div className="flex flex-col max-w-[50%]">
-          <MiSeccion titulo="Otros">
-            <SimpleCardSeccion images={productosOtros} />
-          </MiSeccion>
+        <div className="flex flex-wrap flex-col">
           <MiSeccion titulo="Lacteos">
             <SimpleCardSeccion images={productoslacteos} />
+          </MiSeccion>
+          <MiSeccion titulo="Panaderia">
+            <SimpleCardSeccion images={productosOtros} />
           </MiSeccion>
           <MiSeccion titulo="Panaderia">
             <SimpleCardSeccion images={productosOtros} />

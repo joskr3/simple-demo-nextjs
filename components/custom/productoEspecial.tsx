@@ -43,7 +43,7 @@ const ProductoEspecial = ({ imagen, titulo, descripcion, contenido, boton }: Pro
   }
 
   return (
-    <button className="cursor-pointer" type="button" onClick={() => router.push(`/producto/${imagen.id}`)}>
+    <button className="cursor-pointer max-w-full" type="button" onClick={() => router.push(`/producto/${imagen.id}`)}>
       <Card className="m-3" >
         <CardHeader>
           <CardTitle>{titulo}</CardTitle>

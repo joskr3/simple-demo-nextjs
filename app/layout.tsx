@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-dvh bg-background font-sans antialiased relative flex flex-col p-3",
+          "min-h-dvh max-w-full w-full overflow-x-hidden bg-background font-sans antialiased relative flex flex-col p-3",
           fontSans.variable
         )}
       >
