@@ -26,7 +26,7 @@ const styles = {
 const Footer = () => {
   const { tema } = useTema()
   return (
-    <footer className={cn("FLEX justify-between inset-x-0 bottom-0 border-t-2 gap-3", tema === Tema.Claro ? "bg-white border-gray-200" : "bg-black border-grau-800 text-white")}>
+    <footer className={cn("flex justify-between inset-x-0 bottom-0 border-t-2 gap-3 h-10", tema === Tema.Claro ? "bg-white border-gray-200" : "bg-black border-grau-800 text-white")}>
       <MiSeccionFooter>
         <Link href="/contacto">
           <p className={styles.texto}>
