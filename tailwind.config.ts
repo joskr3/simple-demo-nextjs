@@ -96,6 +96,10 @@ const config = {
         "typewriter": "typewriter 5s steps(38) forwards",
         "caret": "typewriter 5s steps(38) forwards, blink 1s steps(38) infinite 2s"
       },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        mono: ['var(--font-roboto-mono)'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
