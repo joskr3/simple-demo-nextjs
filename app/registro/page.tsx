@@ -25,6 +25,7 @@ const Registro = () => {
     e.preventDefault()
     const usuario = { usuario: nombreUsuario, password }
     registro(usuario)
+    // enviarFormualrio(usuario)
   }
 
   return (
