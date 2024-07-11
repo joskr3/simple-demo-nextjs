@@ -53,7 +53,7 @@ const App = () => {
       </MiSeccion>
       <MiSeccion>
         <h1 className={cn(estilos[tema].tituloHero
-        )}>
+          , "font-mono")}>
           Bienvenidos a la mejor bodeguita online
         </h1>
       </MiSeccion>
