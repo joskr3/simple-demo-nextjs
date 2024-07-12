@@ -1,17 +1,11 @@
 'use client'
 
+import React, { useEffect, useState } from 'react'
 import RutaProtegida from '@/components/custom/rutaProtegida'
 import { useAuth } from '@/context/ContextoAuth'
-import { getDataCacheada } from '@/utils/fetching'
-import React from 'react'
+// import { getDataCacheada } from '@/utils/fetching'
 
-// async function getData() {
-//   const url = 'https://668f316b80b313ba09173c3e.mockapi.io/mergedData'
-//   const respuesta = await getDataCacheada(url)
-//   return respuesta
-// }
-
-async function getData() {
+const getData = async () => {
   const url = 'https://668f316b80b313ba09173c3e.mockapi.io/mergedData'
   const res = await fetch(url)
   if (!res.ok) {
@@ -20,30 +14,32 @@ async function getData() {
   return res.json()
 }
 
-const Dashboard = async () => {
-
+const Dashboard = () => {
   const { usuario } = useAuth()
-  const data = await getData()
+  interface DataItem {
+    src: string; // Adjust this type according to the actual data structure
+  }
+  
+  const [data, setData] = useState<DataItem[]>([])
 
-  console.log("Hola estoy en la vista del dashboard y el usuario es el siguiente", usuario)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getData()
+        setData(result)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
 
-  // const MiTabla = (res:any) => { 
-  //   return (
-  //     <table>
-  //       <td>{ res?.src?.src}</td>
-  //       <td>{res?.width}</td>
-  //       <td>{res?.titulo}</td>
-  //       <td>{res?.descripcion}</td>
-  //     </table>
-  //   )
-  // }
+    fetchData()
+  }, []) // Empty dependency array means this effect runs once on mount
 
-  //console.log(data, "DATA DESDE EL MOCKAPI")
   return (
     <RutaProtegida>
       <div>Soy la vista del dashboard</div>
       <>
-        {data.map((res: any, index: number) => (
+        {data.map((res, index) => (
           <div key={index}>{res?.src}</div>
         ))}
       </>
