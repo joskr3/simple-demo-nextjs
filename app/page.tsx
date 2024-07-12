@@ -6,29 +6,12 @@ import productos from "@/data/data"
 import { cn } from "@/lib/utils"
 import SimpleCardSeccion from "@/components/custom/simpleCardSeccion"
 import { Tema, useTema } from "@/context/ContextoTema"
-
-interface SeccionProps {
-  children?: React.JSX.Element
-  className?: string
-  titulo?: string
-}
-
-const MiSeccion = ({ children, titulo, className }: SeccionProps) => {
-  return (
-    <section className={cn('flex flex-col md:flex-row gap-8 mx-auto max-w-full justify-center', className)} >
-      <div className="flex flex-col">
-        <h3 className="font-light text-pretty  text-2xl md:text-5xl py-6 ml-4">
-          {titulo}
-        </h3>
-        {children}
-      </div>
-    </section>
-  )
-}
+import ListPaginada from "@/components/custom/listPaginada"
+import MiSeccion from "@/components/custom/miSeccion"
 
 const App = () => {
 
-  const { tema, setTema } = useTema()
+  const { tema } = useTema()
 
   const todosLosProductos = productos.products
   const heroProductos = productos.products.slice(5, 14)
@@ -52,10 +35,13 @@ const App = () => {
         <CustomNukaCarousel images={todosLosProductos} />
       </MiSeccion>
       <MiSeccion>
-        <h1 className={cn(estilos[tema].tituloHero
-          , "font-mono")}>
-          Bienvenidos a la mejor bodeguita online
-        </h1>
+        <>
+          <h1 className={cn(estilos[tema].tituloHero
+            , "font-mono")}>
+            Bienvenidos a la mejor bodeguita online
+          </h1>
+          <ListPaginada />
+        </>
       </MiSeccion>
       <MiSeccion titulo="Los mas vendidos">
         <CustomNukaCarousel images={heroProductos} />
