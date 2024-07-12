@@ -77,7 +77,7 @@ const Myheader = () => {
   }
 
   return (
-    <nav className={cn("flex justify-between items-center gap-4 p-4", tema === Tema.Oscuro ? "bg-black text-white" : "bg-white text-black")} >
+    <nav className={cn("flex justify-between items-center gap-4 p-4 sticky inset-x-0 top-0 z-10", tema === Tema.Oscuro ? "bg-black text-white" : "bg-white text-black")} >
       <MenuResponsivo />
       {
         usuario ? <ComponenteSaludo /> : (
