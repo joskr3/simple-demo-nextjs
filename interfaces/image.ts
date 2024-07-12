@@ -5,7 +5,9 @@ interface image {
   witdh?: number
   titulo?: string
   descuento?: number
-  nombre?:string
+  nombre?: string
+  descripcion?: string
+  categoria?:string
 }
 
 export default image
