@@ -8,6 +8,14 @@ import { Tema, useTema } from '@/context/ContextoTema'
 import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { useAuth } from '@/context/ContextoAuth'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 const Myheader = () => {
   const MenuDesktop = () => {
@@ -82,12 +90,23 @@ const Myheader = () => {
       {
         usuario ? <ComponenteSaludo /> : (
           <div className='flex gap-4 font-thin items-center'>
-            <Link href='/inicio' className=' text-md md:text-2xl'>
-              Login
-            </Link>
-            <Link href='/registro' className=' text-md md:text-2xl'>
-              Registro
-            </Link>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton >
+                <Button className=' text-md md:text-2xl'>
+                  Login
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedOut>
+              <SignUpButton >
+                <Button className=' text-md md:text-2xl'>
+                  Registro
+                </Button>
+              </SignUpButton>
+            </SignedOut>
             <Button onClick={cambiarTema} variant={tema === Tema.Claro ? "ghost" : "dark"} >
               {
                 tema === Tema.Claro ? <Moon /> : <Sun />

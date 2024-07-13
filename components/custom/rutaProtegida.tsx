@@ -3,6 +3,7 @@
 import { useAuth } from '@/context/ContextoAuth'
 import { useRouter } from 'next/navigation'
 import React, { ReactNode, FC, useEffect } from 'react'
+import { useUser } from "@clerk/clerk-react";
 
 
 interface RutaProtegidaProps {
@@ -10,14 +11,15 @@ interface RutaProtegidaProps {
 }
 
 const RutaProtegida: FC<RutaProtegidaProps> = ({ children }) => {
+  const { isSignedIn, user, isLoaded } = useUser();
   const { usuario } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    !usuario && router.push("/inicio")
-  }, [usuario, router])
+    !user && router.push("/inicio")
+  }, [user, router])
 
-  if (!usuario) {
+  if (!user) {
     return null
   }
 

@@ -6,6 +6,9 @@ import Myheader from "../components/custom/header";
 import Footer from "../components/custom/footer";
 import { ContextoProvider } from "@/context/ContextoTema";
 import { AuthProvider } from "@/context/ContextoAuth";
+import {
+  ClerkProvider
+} from '@clerk/nextjs'
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -38,20 +41,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
-      <ContextoProvider>
-        <html lang="en" >
-          <body
-            className={cn(
-              "min-h-dvh max-w-full w-full overflow-x-hidden bg-background font-sans antialiased relative flex flex-col p-3", `${aclonica.variable}`
-            )}
-          >
-            <Myheader />
-            {children}
-            <Footer />
-          </body>
-        </html>
-      </ContextoProvider>
-    </AuthProvider>
+    <ClerkProvider>
+      <AuthProvider>
+        <ContextoProvider>
+          <html lang="en" >
+            <body
+              className={cn(
+                "min-h-dvh max-w-full w-full overflow-x-hidden bg-background font-sans antialiased relative flex flex-col p-3", `${aclonica.variable}`
+              )}
+            >
+              <Myheader />
+              {children}
+              <Footer />
+            </body>
+          </html>
+        </ContextoProvider>
+      </AuthProvider>
+    </ClerkProvider>
   );
 }
